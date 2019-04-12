@@ -4,6 +4,7 @@
 <head>
   <script data-require="jquery@*" data-semver="2.0.3" src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
   <script src="https://cdn.rawgit.com/smart-on-fhir/client-js/v0.1.8/dist/fhir-client.js"></script>
+  <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
   <!-- <script src="demo-settings.js"></script> -->
 </head>
 
@@ -11,7 +12,7 @@
 
   <h2>index</h2>
 
-  <iframe id="iframe" src="launch-patient.html?iss=https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca"
+  <iframe is="x-frame-bypass" id="iframe" src="launch-patient.html?iss=https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca"
   width="550px" height="850px">
   </iframe>
 
