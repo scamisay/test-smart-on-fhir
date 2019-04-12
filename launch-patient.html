@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script data-require="jquery@*" data-semver="2.0.3" src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script src="https://cdn.rawgit.com/smart-on-fhir/client-js/v0.1.8/dist/fhir-client.js"></script>
+</head>
+
+<body>
+  <h2>launch patient</h2>
+
+  <script>
+        FHIR.oauth2.authorize({
+          'client_id': '2a87fc88-0c6f-4194-aaa5-fa5dea3b5a55',
+          'scope':  'patient/Patient.read patient/Observation.read launch/patient online_access openid profile'
+        });
+  </script>
+
+</body>
+
+</html>
