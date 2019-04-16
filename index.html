@@ -23,6 +23,36 @@
   //   alert('frame has (re)loaded ');
   // });
     // $('#iframe').contents().find('h2').text()
+    window.addEventListener("message", function (e) {
+      alert(e);
+    	var oauthMessage = e.data;
+    	loginWindow.close();
+    	processOAuthMessage(oauthMessage);
+    }, false);
+  </script>
+
+  <script>
+
+  function build_oauth_request_url(){
+    return "launch-patient.html?iss=https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca";
+  }
+
+  var width = 780,
+      height = 550,
+      left = (screen.width - width) / 2,
+      top = (screen.height - height) / 2,
+      uniqueWindowId = "authorization-" + yourAppClientId
+      params,
+      location;
+  if (top > 20) {
+  	top = top - 20;
+  }
+  params = 'width=' + width + ', height=' + height;
+  params += ', top=' + top + ', left=' + left;
+  params += 'titlebar=no, location=yes';
+  location = build_oauth_request_url();
+  loginWindow = window.open(location, uniqueWindowId, params);
+
   </script>
 </body>
 
