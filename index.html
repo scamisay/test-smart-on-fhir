@@ -38,8 +38,8 @@
     "location=no,width=600,height=600,scrollbars=yes,top=100,left=700,resizable = no");
 
     window.addEventListener("message", function (e) {
-      console.log(e);
-      alert(e);
+      console.log(e.data);
+      alert(e.data);
 
       //var oauthMessage = e.data;
       loginWindow.close();
