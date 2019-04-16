@@ -10,8 +10,9 @@
   <h2>redirect patient</h2>
 
   <script>
-        //alert("he sido redireccionado!");
-        window.opener.postMessage("hola", '*');
+        var key = Object.keys(sessionStorage)[0];
+        var message = sessionStorage.getItem(key);
+        window.opener.postMessage(message, '*');
   </script>
 
 </body>
