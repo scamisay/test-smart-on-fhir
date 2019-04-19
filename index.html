@@ -39,7 +39,8 @@
 
     window.addEventListener("message", function (e) {
       console.log(e.data);
-      alert(e.data);
+      var tokenResponse = eval(e.data);
+      sessionStorage.setItem("tokenResponse", tokenResponse);
 
       //var oauthMessage = e.data;
       loginWindow.close();
