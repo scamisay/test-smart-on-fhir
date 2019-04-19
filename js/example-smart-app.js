@@ -8,6 +8,12 @@
     }
 
     function onReady(smart)  {
+      alert(0);
+      var key = "tokenResponse";//;Object.keys(sessionStorage)[0];
+      var message = sessionStorage.getItem(key);
+      console.log(message);
+      window.opener.postMessage(message, '*');
+      alert(1);
       // if (smart.hasOwnProperty('patient')) {
       //   var patient = smart.patient;
       //   var pt = patient.read();
