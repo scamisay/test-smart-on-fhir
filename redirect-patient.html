@@ -15,14 +15,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
   <script>
-        var key = Object.keys(sessionStorage)[0];
+        extractData();
+        var key = "access_token";//;Object.keys(sessionStorage)[0];
         var message = sessionStorage.getItem(key);
         console.log(message);
         window.opener.postMessage(message, '*');
   </script>
 
   <script>
-    extractData().then(
+    // extractData().then(
       //Display Patient Demographics and Observations if extractData was success
       // function(p) {
       //   drawVisualization(p);
@@ -33,7 +34,7 @@
       //   $('#loading').hide();
       //   $('#errors').html('<p> Failed to call FHIR Service </p>');
       // }
-    );
+    // );
   </script>
 </body>
 
