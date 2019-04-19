@@ -38,9 +38,9 @@
     "location=no,width=600,height=600,scrollbars=yes,top=100,left=700,resizable = no");
 
     window.addEventListener("message", function (e) {
-      var tokenResponse = JSON.parse(e.data);
-      sessionStorage.setItem("tokenResponse", tokenResponse);
-      //loginWindow.close();
+      //var tokenResponse = JSON.parse(e.data);
+      sessionStorage.setItem("tokenResponse", e.data);
+      loginWindow.close();
     }, false);
   </script>
 </body>
