@@ -33,14 +33,34 @@
     return "launch-patient.html?iss=https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca";
   }
 
+  function printJSON(data){
+    console.log( JSON.stringify(data, undefined, 2) );
+  }
+
   var loginWindow = window.open(build_oauth_request_url(),
     "socialPopupWindow",
     "location=no,width=600,height=600,scrollbars=yes,top=100,left=700,resizable = no");
 
     window.addEventListener("message", function (e) {
       //var tokenResponse = JSON.parse(e.data);
+
+      //copio los valores en el session storage
       sessionStorage.setItem("tokenResponse", e.data);
+      //sessionStorage.setItem("tokenResponse", JSON.parse(e.data));
       loginWindow.close();
+
+      //intento traer la informacion del paciente
+      var patientId = JSON.parse(e.data).patient;
+      var config = {
+        serviceUrl: "https://r2.smarthealthit.org",
+        patientId: patientId
+      };
+      var smart = FHIR.client(config);
+
+      smart.patient.api.fetchAllWithReferences({type: "MedicationOrder"},["MedicationOrder.medicationReference"]).then(function(results, refs) {
+         printJSON(results);
+      });
+
     }, false);
   </script>
 </body>
