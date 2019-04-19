@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <h2>redirect patient!</h2>
+  <h2>redirect patient</h2>
 
 
   <script src='./js/example-smart-app.js'></script>
@@ -15,15 +15,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
   <script>
-        extractData().then(
-            function(p) {
-              alert(1);
-              var key = "tokenResponse";//;Object.keys(sessionStorage)[0];
-              var message = sessionStorage.getItem(key);
-              console.log(message);
-              window.opener.postMessage(message, '*');
-            }
-        );
+        extractData();
+
+          var key = "tokenResponse";//;Object.keys(sessionStorage)[0];
+          var message = sessionStorage.getItem(key);
+          console.log(message);
+          window.opener.postMessage(message, '*');
+
   </script>
 
   <script>
