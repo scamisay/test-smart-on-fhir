@@ -52,16 +52,16 @@
       loginWindow.close();
 
       //intento traer la informacion del paciente
-      var patientId = JSON.parse(e.data).patient;
-      var config = {
-        serviceUrl: "https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca",
-        patientId: patientId
-      };
-      var smart = FHIR.client(config);
-
-      smart.patient.api.fetchAllWithReferences({type: "MedicationOrder"},["MedicationOrder.medicationReference"]).then(function(results, refs) {
-         printJSON(results);
-      });
+      // var patientId = JSON.parse(e.data).patient;
+      // var config = {
+      //   serviceUrl: "https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca",
+      //   patientId: patientId
+      // };
+      // var smart = FHIR.client(config);
+      //
+      // smart.patient.api.fetchAllWithReferences({type: "MedicationOrder"},["MedicationOrder.medicationReference"]).then(function(results, refs) {
+      //    printJSON(results);
+      // });
 
     }, false);
   </script>
